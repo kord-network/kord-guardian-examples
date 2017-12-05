@@ -1,0 +1,46 @@
+{
+  "name": "meta-claims-service",
+  "version": "1.0.0",
+  "description": "META Network Claims Service",
+  "main": "index.js",
+  "engines": {
+    "node": "8.9.1",
+    "npm": "5.5.1"
+  },
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meta-network/meta-claims-service.git"
+  },
+  "keywords": [
+    "meta",
+    "network",
+    "claims",
+    "service"
+  ],
+  "author": "JAAK Music Ltd. (https://jaak.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meta-network/meta-claims-service/issues"
+  },
+  "homepage": "https://github.com/meta-network/meta-claims-service#readme",
+  "scripts": {
+    "start": "nodemon --exec micro -p 8000",
+    "start:prod": "NODE_ENV=production micro -p ${PORT:-8000}",
+    "test": "jest"
+  },
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "ethereumjs-util": "^5.1.2",
+    "micro": "^9.0.2"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1",
+    "nodemon": "^1.12.4",
+    "request-promise": "^4.2.2",
+    "test-listen": "^1.1.0"
+  }
+}
