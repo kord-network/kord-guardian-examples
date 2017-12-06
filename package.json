@@ -34,14 +34,15 @@
     ]
   },
   "scripts": {
-    "start": "nodemon --exec micro -p 8000",
-    "start:prod": "NODE_ENV=production micro -p ${PORT:-8000}",
+    "start": "nodemon --exec micro -p 7000",
+    "start:prod": "NODE_ENV=production micro -p ${PORT:-7000}",
     "test": "jest"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
     "ethereumjs-util": "^5.1.2",
-    "micro": "^9.0.2"
+    "micro": "^9.0.2",
+    "micro-cors": "0.0.4"
   },
   "devDependencies": {
     "jest": "^21.2.1",
