@@ -10,11 +10,10 @@ const {
 
 const { json } = require('micro')
 
-const configPath = process.env.NODE_ENV === 'production'
-  ? './.env'
-  : './test/fixtures/.env'
-
-require('dotenv').config({ path: configPath })
+// set env variables in non-production environments
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config({ path: './test/fixtures/.env' })
+}
 
 module.exports = async (req, res) => {
   // META Claims Service keys from env config
@@ -25,6 +24,11 @@ module.exports = async (req, res) => {
 
   // parse request body
   const { address, claimHash, claimValue, signature } = await json(req)
+
+  /**
+   * Recover claim subject's address from signature
+   * @todo - Abstract this code to a library
+   */
 
   // generate signature parameters
   const { v, r, s } = fromRpcSig(signature)
@@ -41,12 +45,20 @@ module.exports = async (req, res) => {
   // verify recovered address equals given address
   const verified = recoveredAddress === address
 
+  /**
+   * Claim verification failed
+   */
+
   // throw error for unverified claims
   if (!verified) return {
     errors: [{
       message: 'Could not verify claim'
     }]
   }
+
+  /**
+   * Claim verification passed
+   */
 
   // set the claim value being verified
   const verifiedClaimValue = claimValue
