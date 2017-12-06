@@ -5,18 +5,23 @@ const {
   fromRpcSig,
   pubToAddress,
   sha3,
+  toChecksumAddress,
   toRpcSig
 } = require('ethereumjs-util')
 
 const { json } = require('micro')
+const microCors = require('micro-cors')
 const request = require('request-promise')
+
+// configure CORS
+const cors = microCors({ allowMethods: ['POST'] })
 
 // set env variables in non-production environments
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config({ path: './test/fixtures/.env' })
 }
 
-module.exports = async (req, res) => {
+module.exports = cors(async (req, res) => {
   // META Claims Service keys from env config
   const metaClaimsService = {
     address: process.env.ETHEREUM_ADDRESS,
@@ -24,7 +29,7 @@ module.exports = async (req, res) => {
   }
 
   // parse request body
-  const { address, claimHash, claimValue, oAuthToken, signature } = await json(req)
+  const { address, claimHash, claimMessage, oAuthToken, signature } = await json(req)
 
   // generate signature parameters
   const { v, r, s } = fromRpcSig(signature)
@@ -36,7 +41,9 @@ module.exports = async (req, res) => {
   const recoveredPublicKey = ecrecover(claimBuffer, v, r, s)
 
   // generate Ethereum address hex from public key
-  const recoveredAddress = bufferToHex(pubToAddress(recoveredPublicKey))
+  const recoveredAddress = toChecksumAddress(
+    bufferToHex(pubToAddress(recoveredPublicKey))
+  )
 
   // verify recovered address equals given address
   const isAddressVerified = recoveredAddress === address
@@ -52,7 +59,7 @@ module.exports = async (req, res) => {
   })
 
   // verify claimed Spotify ID equals response profile ID
-  const isSpotifyIdVerified = spotifyUser.id === claimValue
+  const isSpotifyIdVerified = spotifyUser.id === claimMessage
 
   // throw error for unverified claims
   if (!isAddressVerified || !isSpotifyIdVerified) return {
@@ -62,7 +69,7 @@ module.exports = async (req, res) => {
   }
 
   // set the claim value being verified
-  const verifiedClaimValue = claimValue
+  const verifiedClaimValue = claimMessage
 
   // generate verified claim buffer from verified claim value
   const verifiedClaimBuffer = sha3(verifiedClaimValue)
@@ -87,4 +94,4 @@ module.exports = async (req, res) => {
     signature: verifiedClaimSignature,
     subject: address,
   }
-}
+})
