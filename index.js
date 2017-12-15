@@ -21,14 +21,16 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = cors(async (req, res) => {
-  // META Claims Service keys from env config
+  // META Claims Service config
   const metaClaimsService = {
-    address: process.env.ETHEREUM_ADDRESS,
+    // address: process.env.ETHEREUM_ADDRESS,
+    id: process.env.META_ID,
     privateKey: process.env.PRIVATE_KEY,
+    property: process.env.CLAIM_PROPERTY,
   }
 
   // parse request body
-  const { address, claimHash, claimMessage, signature } = await json(req)
+  const { address, claimHash, claimMessage, signature, subject } = await json(req)
 
   /**
    * Recover claim subject's address from signature
@@ -89,8 +91,9 @@ module.exports = cors(async (req, res) => {
   // return response body
   return {
     claim: verifiedClaimValue,
-    issuer: metaClaimsService.address,
+    issuer: metaClaimsService.id,
+    property: metaClaimsService.property,
     signature: verifiedClaimSignature,
-    subject: address,
+    subject: subject,
   }
 })

@@ -1,6 +1,7 @@
 {
   "claim": "meta",
   "issuer": "0xF540Ecfd7516c73596F27309bC7A28a56f2ee040",
+  "property": "metaId",
   "signature": "0xe4eb498647da10e1dae15d75b3365800dc08174afd0f25be437b61ea39d2bf9857844da950b0f9fcefe0db62591a03ec6b5930c473a0db52c3c9f9adbf8fcfe301",
   "subject": "0xc4300acba32f5631ec4e45b3d62bd31f947a27e3"
 }
