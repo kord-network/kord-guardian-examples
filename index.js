@@ -5,6 +5,7 @@ const {
   fromRpcSig,
   pubToAddress,
   sha3,
+  toBuffer,
   toChecksumAddress,
   toRpcSig
 } = require('ethereumjs-util')
@@ -23,7 +24,6 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = cors(async (req, res) => {
   // META Claims Service config
   const metaClaimsService = {
-    // address: process.env.ETHEREUM_ADDRESS,
     id: process.env.META_ID,
     privateKey: process.env.PRIVATE_KEY,
     property: process.env.CLAIM_PROPERTY,
@@ -72,8 +72,13 @@ module.exports = cors(async (req, res) => {
   // set the claim value being verified
   const verifiedClaimValue = claimMessage
 
-  // generate verified claim buffer from verified claim value
-  const verifiedClaimBuffer = sha3(verifiedClaimValue)
+  // generate verified claim buffer
+  const verifiedClaimBuffer = sha3(Buffer.concat([
+    toBuffer(metaClaimsService.id),
+    toBuffer(subject),
+    toBuffer(metaClaimsService.property),
+    toBuffer(verifiedClaimValue),
+  ]))
 
   // generate ECDSA signature of verified claim buffer using the MCS private key
   const verifiedClaimSignatureObject = ecsign(

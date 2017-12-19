@@ -1,6 +1,7 @@
 {
-  "address": "0xc4300acba32f5631ec4e45b3d62bd31f947a27e3",
-  "claimHash": "0x0144b03a9f213f42c974de61cf2bc229ea0e45254ceebf5781c95f16cbf14f39",
-  "claimValue": "meta",
-  "signature": "0xe8376cb321a3046ad249e0409f41568f12b4dfefee9f14d77cda0e1c3510f9fc6df681bcbbfbdc8d1f9b6032a475fc2628b9ebc7f4ce74f4b05312a32fa12d8d01"
+  "address": "0xadE4772179087732696bE0Bc947412C6c5098Dd6",
+  "claimHash": "0xe864f1c2c17d143cfbc1ae68f2977e0068a2b13342f12834a4184c8a31d7b84f",
+  "claimMessage": "ray.id.meta",
+  "signature": "0x156e0666d92c5f382825f961c6a380398674b0a3aba30f994f1b26ab3d330c653d03db0b0985dda16cbce0f7deffaebebd8259516028bf099ef9ec25f44a7a1100",
+  "subject": "0xe864f1c2c17d143cfbc1ae68f2977e0068a2b13342f12834a4184c8a31d7b84f"
 }
