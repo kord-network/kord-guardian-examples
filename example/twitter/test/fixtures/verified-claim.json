@@ -1,0 +1,7 @@
+{
+  "claim": "level_out",
+  "issuer": "0xe4d5957a826533f2628902ea913233534d6859949e3870b5ac50e857690cd43e",
+  "property": "twitterid",
+  "signature": "0xf6da8461b0002a354e729b872c10ae93dfb6fddbe5aff7ad0172e3de7ef955a709079dc47ebddcf7d2458e0940c8c36a5887cbf367c85ae8f474b8b91486822301",
+  "subject": "0xe864f1c2c17d143cfbc1ae68f2977e0068a2b13342f12834a4184c8a31d7b84f"
+}
