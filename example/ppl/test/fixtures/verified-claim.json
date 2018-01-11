@@ -1,0 +1,7 @@
+{
+  "claim": "abc123",
+  "issuer": "0xb78326bc71bbb572796b95621c80f3cff18614fce66e0858b867d052137bdb0f",
+  "property": "pplid",
+  "signature": "0x8defe43d35e9ad9c1ed1fe1becbe761493d0ce03a0b2aeac077a0729006f460a04f5da94c22ad44b5161c251bbf1624f500c9d831f7337eb113a0c15ee003b4b00",
+  "subject": "0xe864f1c2c17d143cfbc1ae68f2977e0068a2b13342f12834a4184c8a31d7b84f"
+}
