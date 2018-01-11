@@ -30,7 +30,7 @@
   "homepage": "https://github.com/meta-network/meta-claims-service#readme",
   "scripts": {
     "start": "nodemon --exec micro -p 7001",
-    "start:prod": "NODE_ENV=production micro -p ${PORT:-7001}",
+    "start:prod": "NODE_ENV=production micro -p $PORT",
     "test": "jest"
   },
   "dependencies": {
