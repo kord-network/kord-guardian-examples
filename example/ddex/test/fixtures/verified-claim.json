@@ -1,7 +1,7 @@
 {
   "claim": "PADPIDA20170807093",
   "issuer": "0xef851ee3b0ae3953be9af7411c664bcf9b8fd3a175c5de22215307ea7ecdc122",
-  "property": "dpid",
+  "property": "ddex.id",
   "signature": "0xe5a6cba1b51b4263660875605c5422bdc4d2136f574ea8f52f0c1fb948e744cc7f325f5a01615cb3ab51378d4d82bc7ab188c742d085cad7e86a431e9e70024901",
   "subject": "0xe864f1c2c17d143cfbc1ae68f2977e0068a2b13342f12834a4184c8a31d7b84f"
 }

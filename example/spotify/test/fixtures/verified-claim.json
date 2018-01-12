@@ -1,7 +1,7 @@
 {
   "claim": "lukehedger",
   "issuer": "0x3ec8f4fbab9e1d1ae2de977542d7c0200474b0599a4d902314a7ed2b1940478f",
-  "property": "spotifyid",
+  "property": "spotify.id",
   "signature": "0x1c7f5e080aeaba8b73470d8bdf0bb912d7f79afa90a3ce041e7ffc0617d03d6f7a7615e322ff0bcf5620dbdcb456b413573ac21507c73c74e533290756eb040100",
   "subject": "0xe864f1c2c17d143cfbc1ae68f2977e0068a2b13342f12834a4184c8a31d7b84f"
 }
