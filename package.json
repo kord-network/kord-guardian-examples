@@ -35,7 +35,7 @@
     ]
   },
   "scripts": {
-    "start": "nodemon --exec micro -p 7000",
+    "start": "micro-dev -p 7000",
     "start:prod": "NODE_ENV=production micro -p ${PORT:-7000}",
     "test": "jest"
   },
@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "jest": "^21.2.1",
-    "nodemon": "^1.12.4",
+    "micro-dev": "^2.2.0",
     "request-promise": "^4.2.2",
     "test-listen": "^1.1.0"
   }

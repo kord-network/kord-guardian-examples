@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/meta-network/meta-identity-claims-service#readme",
   "scripts": {
-    "start": "nodemon --exec micro -p 7001",
+    "start": "micro-dev -p 7001",
     "start:prod": "NODE_ENV=production micro -p $PORT",
     "test": "jest"
   },
@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "jest": "^21.2.1",
-    "nodemon": "^1.12.4",
+    "micro-dev": "^2.2.0",
     "request-promise": "^4.2.2",
     "test-listen": "^1.1.0"
   }
