@@ -1,7 +1,7 @@
 {
-  "name": "meta-claims-service",
+  "name": "meta-identity-claims-service",
   "version": "1.0.0",
-  "description": "META Network Claims Service",
+  "description": "META Network Identity Claims Service",
   "main": "index.js",
   "engines": {
     "node": "8.9.1",
@@ -14,20 +14,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/meta-network/meta-claims-service.git"
+    "url": "git+https://github.com/meta-network/meta-identity-claims-service.git"
   },
   "keywords": [
     "meta",
     "network",
+    "identity",
     "claims",
     "service"
   ],
   "author": "JAAK Music Ltd. (https://jaak.io/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/meta-network/meta-claims-service/issues"
+    "url": "https://github.com/meta-network/meta-identity-claims-service/issues"
   },
-  "homepage": "https://github.com/meta-network/meta-claims-service#readme",
+  "homepage": "https://github.com/meta-network/meta-identity-claims-service#readme",
   "scripts": {
     "start": "nodemon --exec micro -p 7001",
     "start:prod": "NODE_ENV=production micro -p $PORT",
