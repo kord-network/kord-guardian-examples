@@ -43,7 +43,7 @@
    ```
 
 5. The template can be customised with additional verification checks, such as
-   [OAuth](https://oauth.net/), [TLS Notary](https://tlsnotary.org/), [JWT](https://jwt.io/) etc.
+   [OAuth](https://oauth.net/), [TLS Notary](https://tlsnotary.org/), [2FA](https://en.wikipedia.org/wiki/Multi-factor_authentication), [JWT](https://jwt.io/) etc.
 
 6. The tests and test data can be updated as you build out your META Identity
    Claims Service. Tests can be run with:
