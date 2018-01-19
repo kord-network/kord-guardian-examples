@@ -33,7 +33,7 @@ for other languages will be added as other external libraries are developed.
    verifyIdentityClaim(address, claimHash, signature)
    ```
 
-3. Additional verification CAN be made on the claim. For example: OAuth,
+3. Additional verification MAY be made on the claim. For example: OAuth,
    TLS Notary, JWT, 2FA, social network statements, national ID document checks.
 
 4. The META Identity Claims Service MUST return a verified META Identity Claim
@@ -45,5 +45,5 @@ for other languages will be added as other external libraries are developed.
 
    ![2](https://user-images.githubusercontent.com/1913316/35090436-93043e54-fc31-11e7-8ab2-f2ba0c0feee6.png)
 
-5. The verified META Identity Claim CAN then be added to META Claims Index in
+5. The verified META Identity Claim MAY then be added to META Claims Index in
    the META Network by the claim subject.
