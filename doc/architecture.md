@@ -34,7 +34,7 @@ for other languages will be added as other external libraries are developed.
    ```
 
 3. Additional verification CAN be made on the claim. For example: OAuth,
-   TLS Notary, JWT, social network statements, national ID document checks.
+   TLS Notary, JWT, 2FA, social network statements, national ID document checks.
 
 4. The META Identity Claims Service MUST return a verified META Identity Claim
    object
