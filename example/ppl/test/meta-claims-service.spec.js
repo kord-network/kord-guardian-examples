@@ -35,4 +35,25 @@ describe('META Claims Service', () => {
 
     expect(actual).toEqual(expected)
   })
+
+  it('Should return an error object', async () => {
+    const uri = await listen(service)
+
+    const invalidClaimData = { ...claimData, address: '0x' }
+
+    const body = await request({
+      body: invalidClaimData,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      json: true,
+      method: 'POST',
+      uri,
+    })
+
+    const actual = body
+    const expected = { errors: [{ message: 'Could not verify claim' }] }
+
+    expect(actual).toEqual(expected)
+  })
 })
