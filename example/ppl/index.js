@@ -14,36 +14,42 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = cors(async (req, res) => {
-  // claim issuer
-  const issuer = {
-    id: process.env.META_ID,
-    privateKey: process.env.PRIVATE_KEY,
+  try {
+    // claim issuer
+    const issuer = {
+      id: process.env.META_ID,
+      privateKey: process.env.PRIVATE_KEY,
+    }
+
+    // claim property
+    const property = process.env.CLAIM_PROPERTY
+
+    // parse request body
+    const { address, claimHash, claimMessage, signature, subject } = await json(req)
+
+    // verify recovered address equals given address
+    const verified = verifyIdentityClaim(address, claimHash, signature)
+
+    // throw error for unverified claims
+    if (!verified) return {
+      errors: [{
+        message: 'Could not verify claim'
+      }]
+    }
+
+    // generate a verified META Identity Claim object
+    const verifiedIdentityClaim = createVerifiedIdentityClaimObject(
+      claimMessage,
+      issuer,
+      property,
+      subject
+    )
+
+    // return verified META Identity Claim in response body
+    return verifiedIdentityClaim
+  } catch (e) {
+    return {
+      errors: [e]
+    }
   }
-
-  // claim property
-  const property = process.env.CLAIM_PROPERTY
-
-  // parse request body
-  const { address, claimHash, claimMessage, signature, subject } = await json(req)
-
-  // verify recovered address equals given address
-  const verified = verifyIdentityClaim(address, claimHash, signature)
-
-  // throw error for unverified claims
-  if (!verified) return {
-    errors: [{
-      message: 'Could not verify claim'
-    }]
-  }
-
-  // generate a verified META Identity Claim object
-  const verifiedIdentityClaim = createVerifiedIdentityClaimObject(
-    claimMessage,
-    issuer,
-    property,
-    subject
-  )
-
-  // return verified META Identity Claim in response body
-  return verifiedIdentityClaim
 })
