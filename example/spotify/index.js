@@ -1,15 +1,7 @@
 const {
-  bufferToHex,
-  ecrecover,
-  ecsign,
-  fromRpcSig,
-  pubToAddress,
-  sha3,
-  toBuffer,
-  toChecksumAddress,
-  toRpcSig
-} = require('ethereumjs-util')
-
+  createVerifiedIdentityClaimObject,
+  verifyIdentityClaim,
+} = require('@meta.js/identity-claims')
 const { json } = require('micro')
 const microCors = require('micro-cors')
 const request = require('request-promise')
@@ -23,83 +15,55 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = cors(async (req, res) => {
-  // META Claims Service config
-  const metaClaimsService = {
-    id: process.env.META_ID,
-    privateKey: process.env.PRIVATE_KEY,
-    property: process.env.CLAIM_PROPERTY,
-  }
+  try {
+    // claim issuer
+    const issuer = {
+      id: process.env.META_ID,
+      privateKey: process.env.PRIVATE_KEY,
+    }
 
-  // parse request body
-  const { address, claimHash, claimMessage, oAuthToken, signature, subject } = await json(req)
+    // claim property
+    const property = process.env.CLAIM_PROPERTY
 
-  // generate signature parameters
-  const { v, r, s } = fromRpcSig(signature)
+    // parse request body
+    const { address, claimHash, claimMessage, oAuthToken, signature, subject } = await json(req)
 
-  // generate claim buffer from claim hash minus `0x` prefix
-  const claimBuffer = Buffer.from(claimHash.substring(2), 'hex')
+    // verify recovered address equals given address
+    const isAddressVerified = verifyIdentityClaim(address, claimHash, signature)
 
-  // recover public key from claim
-  const recoveredPublicKey = ecrecover(claimBuffer, v, r, s)
+    // verify provided OAuth token is valid by requesting private profile data
+    const spotifyUser = await request({
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${oAuthToken}`,
+      },
+      json: true,
+      uri: 'https://api.spotify.com/v1/me',
+    })
 
-  // generate Ethereum address hex from public key
-  const recoveredAddress = toChecksumAddress(
-    bufferToHex(pubToAddress(recoveredPublicKey))
-  )
+    // verify claimed Spotify ID equals response profile ID
+    const isSpotifyIdVerified = spotifyUser.id === claimMessage
 
-  // verify recovered address equals given address
-  const isAddressVerified = recoveredAddress === address
+    // throw error for unverified claims
+    if (!isAddressVerified || !isSpotifyIdVerified) return {
+      errors: [{
+        message: 'Could not verify claim'
+      }]
+    }
 
-  // verify provided OAuth token is valid by requesting private profile data
-  const spotifyUser = await request({
-    headers: {
-      'Accept': 'application/json',
-      'Authorization': `Bearer ${oAuthToken}`,
-    },
-    json: true,
-    uri: 'https://api.spotify.com/v1/me',
-  })
+    // generate a verified META Identity Claim object
+    const verifiedIdentityClaim = createVerifiedIdentityClaimObject(
+      claimMessage,
+      issuer,
+      property,
+      subject
+    )
 
-  // verify claimed Spotify ID equals response profile ID
-  const isSpotifyIdVerified = spotifyUser.id === claimMessage
-
-  // throw error for unverified claims
-  if (!isAddressVerified || !isSpotifyIdVerified) return {
-    errors: [{
-      message: 'Could not verify claim'
-    }]
-  }
-
-  // set the claim value being verified
-  const verifiedClaimValue = claimMessage
-
-  // generate verified claim buffer
-  const verifiedClaimBuffer = sha3(Buffer.concat([
-    toBuffer(metaClaimsService.id),
-    toBuffer(subject),
-    toBuffer(metaClaimsService.property),
-    toBuffer(verifiedClaimValue),
-  ]))
-
-  // generate ECDSA signature of verified claim buffer using the MCS private key
-  const verifiedClaimSignatureObject = ecsign(
-    verifiedClaimBuffer,
-    Buffer.from(metaClaimsService.privateKey, 'hex')
-  )
-
-  // convert ECDSA signature buffer to hex value
-  const verifiedClaimSignature = toRpcSig(
-    verifiedClaimSignatureObject.v,
-    verifiedClaimSignatureObject.r,
-    verifiedClaimSignatureObject.s
-  )
-
-  // return response body
-  return {
-    claim: verifiedClaimValue,
-    issuer: metaClaimsService.id,
-    property: metaClaimsService.property,
-    signature: verifiedClaimSignature,
-    subject: subject,
+    // return verified META Identity Claim in response body
+    return verifiedIdentityClaim
+  } catch (e) {
+    return {
+      errors: [e]
+    }
   }
 })

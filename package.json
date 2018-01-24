@@ -40,6 +40,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@meta.js/identity-claims": "^1.0.0-alpha.3",
     "dotenv": "^4.0.0",
     "ethereumjs-util": "^5.1.2",
     "micro": "^9.0.2",
