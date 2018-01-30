@@ -1,0 +1,7 @@
+{
+  "claim": "https://www.facebook.com/app_scoped_user_id/10154972450662391/",
+  "issuer": "0x99c4c57bbbda4322f84c8683deb405ec24589645efe96bb0cf98b3fcc2d95c6e",
+  "property": "facebook.id",
+  "signature": "0x6a1211fb71c169668905ee96354a5e14cfcc3319ed7232576b869051b1426a4f57e3c1ea7c9f1dd716ce7ec9c8ba3e7b04313c52a2a2650acd95583cc24b797b01",
+  "subject": "0xe864f1c2c17d143cfbc1ae68f2977e0068a2b13342f12834a4184c8a31d7b84f"
+}
