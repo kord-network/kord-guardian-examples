@@ -25,7 +25,7 @@ module.exports = cors(async (req, res) => {
     const property = process.env.CLAIM_PROPERTY
 
     // Parse request body
-    const { address, claimHash, claimMessage, signature, subject } = await json(req)
+    const { address, claimHash, claimMessage, graph, signature, subject } = await json(req)
 
     /**
      * Verify claim sender's identity
@@ -48,7 +48,7 @@ module.exports = cors(async (req, res) => {
     // throw error for unverified claims
     if (!verified) return {
       errors: [{
-        message: 'Could not verify claim'
+        message: 'Could not verify claim',
       }]
     }
 
@@ -59,6 +59,7 @@ module.exports = cors(async (req, res) => {
     // Generate a verified META Identity Claim object
     const verifiedIdentityClaim = createVerifiedIdentityClaimObject(
       claimMessage,
+      graph,
       issuer,
       property,
       subject
@@ -68,7 +69,9 @@ module.exports = cors(async (req, res) => {
     return verifiedIdentityClaim
   } catch (e) {
     return {
-      errors: [e]
+      errors: [{
+        message: e.message,
+      }]
     }
   }
 })

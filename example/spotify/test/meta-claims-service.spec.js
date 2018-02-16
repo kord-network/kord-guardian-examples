@@ -52,8 +52,7 @@ describe('META Claims Service', () => {
     })
 
     const actual = body
-    const expected = { errors: [{ message: 'Could not verify claim' }] }
 
-    expect(actual).toEqual(expected)
+    expect(actual.errors).toHaveLength(1)
   })
 })

@@ -39,7 +39,7 @@ describe('META Claims Service', () => {
   it('Should return an error object', async () => {
     const uri = await listen(service)
 
-    const invalidClaimData = { ...claimData, address: '0x' }
+    const invalidClaimData = { ...claimData, address: '0xc4300acba32f5631ec4e45b3d62bd31f947a27e3' }
 
     const body = await request({
       body: invalidClaimData,

@@ -2,7 +2,8 @@
   "address": "0xadE4772179087732696bE0Bc947412C6c5098Dd6",
   "claimHash": "0xe6f4391f95da3fd64c4a0f4099e22341df3e55f34a549c361bc9c4bff819af1d",
   "claimMessage": "lukehedger",
-  "oAuthToken": "BQAr8psw65_fazXl4qS5QaPMPWXuziyAAPX-3VBzjS_s7px_EPNKMp81n6rtdOqQt85QFJcBdBu4lz3GxyralxUAf9zg9kCQpWJJ3fb0oJELDBFU9g8AIDCbVpYtHi87UlV9uq1kWSA6mlCh8KvAN7VW5KhO",
+  "graph": "ray.meta",
+  "oAuthToken": "BQBn5C1EgIQgbb97Msti-AbXO0NklHC2sT5xD9J5g4EP7NHpy1Q46UIv9ZOsmhI33wkboPI_DQ_ZXHmhW07lOZqzp_sU-O08icPzCaeFtS7K5258AOl6XckEEOdm3ie5aM9XE0ZUhcZAd8aVXw",
   "signature": "0x3507bf33dc75212a7da5e43ab3d92b74bc698732e381b01075bd602d65c29adc56fb3aebe1c670e20df7048faaa32595b82c95abb0a72e4077a3eb8e9141c71101",
   "subject": "0xe864f1c2c17d143cfbc1ae68f2977e0068a2b13342f12834a4184c8a31d7b84f"
 }

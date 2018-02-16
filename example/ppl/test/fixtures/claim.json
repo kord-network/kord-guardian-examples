@@ -2,6 +2,7 @@
   "address": "0xadE4772179087732696bE0Bc947412C6c5098Dd6",
   "claimHash": "0x719accc61a9cc126830e5906f9d672d06eab6f8597287095a2c55a8b775e7016",
   "claimMessage": "abc123",
+  "graph": "ray.meta",
   "signature": "0x162a62ec7952bc4f4aba6cf9e5c37bd07da8d12de80ca7d478597a960ffa6c53292f3517a4dcae19fd9f18dc079ff5e7e87f89bb021a0b9cb5c43bfbf925c45d00",
   "subject": "0xe864f1c2c17d143cfbc1ae68f2977e0068a2b13342f12834a4184c8a31d7b84f"
 }

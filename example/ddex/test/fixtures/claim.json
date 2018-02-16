@@ -2,6 +2,7 @@
   "address": "0xadE4772179087732696bE0Bc947412C6c5098Dd6",
   "claimHash": "0x2dff1e27a0a2c21ade78da4df8b49240e625aee5e378695b9f63a01a2abec11f",
   "claimMessage": "PADPIDA20170807093",
+  "graph": "ray.meta",
   "signature": "0x8a3f880fd2f3a922543486ea7f2f18da512833eb78727d84c9c1c5c22a81acaa63fc333b51aaa8ee38eeedb8cc53ca9b1d2d88e5cd6169daf9e0a6e2da1ad3a701",
   "subject": "0xe864f1c2c17d143cfbc1ae68f2977e0068a2b13342f12834a4184c8a31d7b84f"
 }
