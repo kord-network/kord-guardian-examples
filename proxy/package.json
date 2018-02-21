@@ -1,0 +1,37 @@
+{
+  "name": "meta-identity-claims-service-proxy",
+  "version": "1.0.0",
+  "description": "META Identity Claims Service Proxy",
+  "engines": {
+    "node": "8.9.1",
+    "npm": "5.5.1"
+  },
+  "directories": {
+    "doc": "doc",
+    "example": "example",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meta-network/meta-identity-claims-service.git"
+  },
+  "keywords": [
+    "meta",
+    "network",
+    "identity",
+    "claims",
+    "service"
+  ],
+  "author": "JAAK Music Ltd. (https://jaak.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meta-network/meta-identity-claims-service/issues"
+  },
+  "homepage": "https://github.com/meta-network/meta-identity-claims-service#readme",
+  "scripts": {
+    "start": "micro-proxy -r rules.json -p 9000"
+  },
+  "devDependencies": {
+    "micro-proxy": "^1.1.0"
+  }
+}
