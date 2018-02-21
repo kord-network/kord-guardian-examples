@@ -33,7 +33,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@meta.js/identity-claims": "^1.0.0-alpha.3",
+    "@meta.js/identity-claims": "^1.0.0-beta.0",
     "dotenv": "^4.0.0",
     "micro": "^9.0.2",
     "micro-cors": "0.0.4"
