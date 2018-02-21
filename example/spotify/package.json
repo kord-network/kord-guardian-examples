@@ -8,8 +8,6 @@
     "npm": "5.5.1"
   },
   "directories": {
-    "doc": "doc",
-    "example": "example",
     "test": "test"
   },
   "repository": {
