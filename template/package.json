@@ -1,15 +1,13 @@
 {
   "name": "meta-identity-claims-service",
   "version": "1.0.0",
-  "description": "META Network Identity Claims Service",
+  "description": "META Identity Claims Service",
   "main": "index.js",
   "engines": {
     "node": "8.9.1",
     "npm": "5.5.1"
   },
   "directories": {
-    "doc": "doc",
-    "example": "example",
     "test": "test"
   },
   "repository": {
@@ -36,7 +34,7 @@
   },
   "scripts": {
     "start": "micro-dev -p 7000",
-    "start:prod": "NODE_ENV=production micro -p ${PORT:-7000}",
+    "start:prod": "NODE_ENV=production micro",
     "test": "jest"
   },
   "dependencies": {
