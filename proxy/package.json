@@ -1,8 +1,7 @@
 {
-  "name": "meta-identity-claims-service",
+  "name": "meta-identity-claims-service-proxy",
   "version": "1.0.0",
-  "description": "META Network Identity Claims Service",
-  "main": "index.js",
+  "description": "META Identity Claims Service Proxy",
   "engines": {
     "node": "8.9.1",
     "npm": "5.5.1"
@@ -29,26 +28,10 @@
     "url": "https://github.com/meta-network/meta-identity-claims-service/issues"
   },
   "homepage": "https://github.com/meta-network/meta-identity-claims-service#readme",
-  "jest": {
-    "modulePathIgnorePatterns": [
-      "example"
-    ]
-  },
   "scripts": {
-    "start": "micro-dev -p 7000",
-    "start:prod": "NODE_ENV=production micro -p ${PORT:-7000}",
-    "test": "jest"
-  },
-  "dependencies": {
-    "@meta.js/identity-claims": "^1.0.0-beta.0",
-    "dotenv": "^4.0.0",
-    "micro": "^9.0.2",
-    "micro-cors": "0.0.4"
+    "start": "micro-proxy -r rules.json -p 9000"
   },
   "devDependencies": {
-    "jest": "^21.2.1",
-    "micro-dev": "^2.2.0",
-    "request-promise": "^4.2.2",
-    "test-listen": "^1.1.0"
+    "micro-proxy": "^1.1.0"
   }
 }

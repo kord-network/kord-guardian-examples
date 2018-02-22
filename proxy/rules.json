@@ -1,0 +1,32 @@
+{
+  "rules": [
+    {
+      "pathname": "/ddex",
+      "method": [
+        "POST"
+      ],
+      "dest": "http://localhost:7001"
+    },
+    {
+      "pathname": "/facebook",
+      "method": [
+        "POST"
+      ],
+      "dest": "http://localhost:7004"
+    },
+    {
+      "pathname": "/ppl",
+      "method": [
+        "POST"
+      ],
+      "dest": "http://localhost:7002"
+    },
+    {
+      "pathname": "/spotify",
+      "method": [
+        "POST"
+      ],
+      "dest": "http://localhost:7003"
+    }
+  ]
+}

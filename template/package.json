@@ -1,7 +1,7 @@
 {
   "name": "meta-identity-claims-service",
   "version": "1.0.0",
-  "description": "META Network Identity Claims Service",
+  "description": "META Identity Claims Service",
   "main": "index.js",
   "engines": {
     "node": "8.9.1",
@@ -27,9 +27,14 @@
     "url": "https://github.com/meta-network/meta-identity-claims-service/issues"
   },
   "homepage": "https://github.com/meta-network/meta-identity-claims-service#readme",
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "example"
+    ]
+  },
   "scripts": {
-    "start": "micro-dev -p 7003",
-    "start:prod": "NODE_ENV=production micro -p $PORT",
+    "start": "micro-dev -p 7000",
+    "start:prod": "NODE_ENV=production micro",
     "test": "jest"
   },
   "dependencies": {
