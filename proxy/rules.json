@@ -15,13 +15,6 @@
       "dest": "http://localhost:7004"
     },
     {
-      "pathname": "/ppl",
-      "method": [
-        "POST"
-      ],
-      "dest": "http://localhost:7002"
-    },
-    {
       "pathname": "/spotify",
       "method": [
         "POST"
