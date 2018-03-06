@@ -6,7 +6,7 @@
 [Read about the architecture](/doc/architecture.md) of a KORD Guardian
 micro-service.
 
-## Run example KORD Guardian micro-services
+## Run example micro-services
 ```bash
 # Start the proxy server
 cd proxy/
@@ -17,5 +17,5 @@ cd example/xyz/
 npm start
 ```
 
-## Build a new KORD Guardian micro-service
+## Build a new micro-service
 [Follow the guide](/doc/guide.md) to creating a new KORD Guardian micro-service.
