@@ -22,7 +22,7 @@ for other languages will be added as other external libraries are developed.
 1. A verifiable claim is sent to the KORD Guardian micro-service via an HTTP
    request
 
-   ![1](https://user-images.githubusercontent.com/1913316/37060900-9b30bcba-2189-11e8-997c-90683677a3e7.png)
+   ![1](https://user-images.githubusercontent.com/1913316/37060991-dd341c4c-2189-11e8-8cbd-ef82eb3c87f0.png)
 
 2. The KORD Guardian micro-service MUST recover the sender's Ethereum address
    from the claim signature and verify that it matches the address sent in the
@@ -41,7 +41,7 @@ for other languages will be added as other external libraries are developed.
    createVerifiedIdentityClaimObject(claimMessage, graph, issuer, property, subject)
    ```
 
-   ![2](https://user-images.githubusercontent.com/1913316/37060901-9b4960f8-2189-11e8-992c-9bb606d4bf53.png)
+   ![2](https://user-images.githubusercontent.com/1913316/37060992-dd4e54ae-2189-11e8-8da6-424f8845bba7.png)
 
 5. The verified KORD Claim MAY then be added to a KORD Graph in the KORD Network
    by the claim subject.
