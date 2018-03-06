@@ -1,8 +1,0 @@
-{
-  "claim": "ray.id.meta",
-  "graph": "ray.meta",
-  "issuer": "0x2013ce5cacbfb860251db4c55f0ed4d70e89c6c6700a5fd7a38fe45afa12ec92",
-  "property": "meta.id",
-  "signature": "0xaeadae02127d2b3c22ef26da370ff62c6121e862b2bc2966cd17d11351290a8a0c187a6f5a71158d3090c9cf30650d1fd22417e83806d7179e8b5357b282c0f301",
-  "subject": "0xe864f1c2c17d143cfbc1ae68f2977e0068a2b13342f12834a4184c8a31d7b84f"
-}

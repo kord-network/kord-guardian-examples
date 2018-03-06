@@ -1,39 +1,30 @@
 {
-  "name": "meta-identity-claims-service",
+  "name": "facebook-kord-guardian-service",
   "version": "1.0.0",
-  "description": "META Network Identity Claims Service",
+  "description": "Facebook KORD Guardian micro-service",
   "main": "index.js",
   "engines": {
-    "node": "8.9.1",
-    "npm": "5.5.1"
+    "node": ">= 8.9.0 < 9.0.0",
+    "npm": ">= 5.2.0 < 5.8.0"
   },
   "directories": {
     "test": "test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/meta-network/meta-identity-claims-service.git"
-  },
   "keywords": [
-    "meta",
+    "kord",
     "network",
-    "identity",
-    "claims",
+    "guardian",
     "service"
   ],
   "author": "JAAK Music Ltd. (https://jaak.io/)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/meta-network/meta-identity-claims-service/issues"
-  },
-  "homepage": "https://github.com/meta-network/meta-identity-claims-service#readme",
   "scripts": {
     "start": "micro-dev -p 7004",
-    "start:prod": "NODE_ENV=production micro -p $PORT",
+    "start:prod": "NODE_ENV=production micro",
     "test": "jest"
   },
   "dependencies": {
-    "@meta.js/identity-claims": "^1.0.0-beta.0",
+    "@kord.js/identity-claims": "^1.0.0-alpha",
     "dotenv": "^4.0.0",
     "micro": "^9.0.2",
     "micro-cors": "0.0.4"

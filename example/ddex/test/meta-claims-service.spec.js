@@ -2,22 +2,22 @@ const micro = require('micro')
 const listen = require('test-listen')
 const request = require('request-promise')
 
-const metaClaimsService = require('../')
+const kordClaimsService = require('../')
 const claimData = require('./fixtures/claim.json')
 const verifiedClaimData = require('./fixtures/verified-claim.json')
 
-describe('META Claims Service', () => {
+describe('KORD Guardian micro-service', () => {
   let service
 
   beforeAll(async () => {
-    service = micro(metaClaimsService)
+    service = micro(kordClaimsService)
   })
 
   afterAll(() => {
     service.close()
   })
 
-  it('Should return a META Claim object', async () => {
+  it('Should return a KORD Claim object', async () => {
     const uri = await listen(service)
 
     const body = await request({

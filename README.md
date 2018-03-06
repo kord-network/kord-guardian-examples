@@ -1,8 +1,12 @@
 <p align='center'>
-  <img src='https://user-images.githubusercontent.com/1913316/33278996-00fa18d6-d395-11e7-9c76-47e62d10b626.png' width='200'/>
+  <img src='https://user-images.githubusercontent.com/1913316/37030105-9b8e2114-2131-11e8-8b07-fd7839b80680.png' width='200'/>
 </p>
 
-## Run example services
+## KORD Guardian micro-services
+[Read about the architecture](/doc/architecture.md) of a KORD Guardian
+micro-service.
+
+## Run example KORD Guardian micro-services
 ```bash
 # Start the proxy server
 cd proxy/
@@ -13,6 +17,5 @@ cd example/xyz/
 npm start
 ```
 
-## Build a new service
-Create a new META Identity Claims Service using the [template](/template)
-provided.
+## Build a new KORD Guardian micro-service
+[Follow the guide](/doc/guide.md) to creating a new KORD Guardian micro-service.

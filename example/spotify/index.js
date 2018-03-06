@@ -1,7 +1,7 @@
 const {
   createVerifiedIdentityClaimObject,
   verifyIdentityClaim,
-} = require('@meta.js/identity-claims')
+} = require('@kord.js/identity-claims')
 const { json } = require('micro')
 const microCors = require('micro-cors')
 const request = require('request-promise')
@@ -18,7 +18,7 @@ module.exports = cors(async (req, res) => {
   try {
     // claim issuer
     const issuer = {
-      id: process.env.META_ID,
+      id: process.env.KORD_ID,
       privateKey: process.env.PRIVATE_KEY,
     }
 
@@ -51,7 +51,7 @@ module.exports = cors(async (req, res) => {
       }]
     }
 
-    // generate a verified META Identity Claim object
+    // generate a verified KORD Claim object
     const verifiedIdentityClaim = createVerifiedIdentityClaimObject(
       claimMessage,
       graph,
@@ -60,7 +60,7 @@ module.exports = cors(async (req, res) => {
       subject
     )
 
-    // return verified META Identity Claim in response body
+    // return verified KORD Claim in response body
     return verifiedIdentityClaim
   } catch (e) {
     return {

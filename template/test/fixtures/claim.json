@@ -1,8 +1,0 @@
-{
-  "address": "0xadE4772179087732696bE0Bc947412C6c5098Dd6",
-  "claimHash": "0xe864f1c2c17d143cfbc1ae68f2977e0068a2b13342f12834a4184c8a31d7b84f",
-  "claimMessage": "ray.id.meta",
-  "graph": "ray.meta",
-  "signature": "0x156e0666d92c5f382825f961c6a380398674b0a3aba30f994f1b26ab3d330c653d03db0b0985dda16cbce0f7deffaebebd8259516028bf099ef9ec25f44a7a1100",
-  "subject": "0xe864f1c2c17d143cfbc1ae68f2977e0068a2b13342f12834a4184c8a31d7b84f"
-}

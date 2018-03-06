@@ -1,33 +1,31 @@
 {
-  "name": "meta-identity-claims-service-proxy",
+  "name": "kord-guardian-proxy",
   "version": "1.0.0",
-  "description": "META Identity Claims Service Proxy",
+  "description": "KORD Guardian micro-service proxy",
   "engines": {
     "node": "8.9.1",
     "npm": "5.5.1"
   },
   "directories": {
     "doc": "doc",
-    "example": "example",
-    "test": "test"
+    "example": "example"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/meta-network/meta-identity-claims-service.git"
+    "url": "git+https://github.com/kord-network/kord-guardian-examples.git"
   },
   "keywords": [
-    "meta",
+    "kord",
     "network",
-    "identity",
-    "claims",
+    "guardian",
     "service"
   ],
   "author": "JAAK Music Ltd. (https://jaak.io/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/meta-network/meta-identity-claims-service/issues"
+    "url": "https://github.com/kord-network/kord-guardian-examples/issues"
   },
-  "homepage": "https://github.com/meta-network/meta-identity-claims-service#readme",
+  "homepage": "https://github.com/kord-network/kord-guardian-examples#readme",
   "scripts": {
     "start": "micro-proxy -r rules.json -p 9000"
   },
